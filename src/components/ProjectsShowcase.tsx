@@ -28,11 +28,11 @@ const ProjectsShowcase = ({ projects = [] }: ProjectsShowcaseProps) => {
   const defaultProjects: Project[] = [
     {
       id: "1",
-      title: "Mail Spam Detection",
+      title: "Mail Sp am Detection",
       description:
         "A comprehensive solution for detecting spam emails, integrating machine learning with a user-friendly web interface. Performed data modelling, cleaning, refining, and classification to ensure high model accuracy.",
       thumbnail:
-        "https://images.unsplash.com/photo-1563674847932-9332a83a0f18?w=800&q=80",
+        "https://plus.unsplash.com/premium_photo-1682310147148-b3d6ae674965?q=80&w=1812&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       techStack: [
         "Python",
         "Streamlit",

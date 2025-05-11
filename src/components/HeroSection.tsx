@@ -14,7 +14,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   name = "Sumit Khobragade",
   title = "Data Scientist & Software Developer",
   description = "Analytical Data Scientist proficient in Python, pandas, NumPy, Matplotlib, and machine learning techniques. Experienced in building intelligent automation systems and predictive models for finance and decision support.",
-  imageUrl = "/assets/sumit_img.jpeg",
+  imageUrl = "./assets/sumit_img.jpeg",
 }) => {
   return (
     <section className="relative min-h-[500px] md:min-h-[700px] w-full flex items-center justify-center bg-background py-10 md:py-20 px-4 md:px-8 overflow-hidden">
@@ -91,17 +91,24 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 }
               >
                 <Mail className="h-4 w-4 md:h-5 md:w-5" />
-                Contact Me
+                 Contact Me
               </Button>
-              <Button
-                size="sm"
-                variant="outline"
-                className="gap-1 text-xs sm:text-sm md:gap-2 md:text-base md:size-lg"
-                onClick={() => (window.location.href = "/assets/resume.pdf")}
-              >
-                <ArrowDownToLine className="h-4 w-4 md:h-5 md:w-5" />
-                Download Resume
-              </Button>
+<Button
+  size="sm"
+  variant="outline"
+  className="gap-1 text-xs sm:text-sm md:gap-2 md:text-base md:size-lg"
+  onClick={() => {
+    const link = document.createElement("a"); // Create an <a> element
+    link.href = "Portfolio/assets/resume.pdf"; // Path to the resume file
+    link.download = "Sumit_Khobragade_Resume.pdf"; // File name for the download
+    document.body.appendChild(link); // Append the link to the document
+    link.click(); // Programmatically click the link
+    document.body.removeChild(link); // Remove the link after triggering the download
+  }}
+>
+  <ArrowDownToLine className="h-4 w-4 md:h-5 md:w-5" />
+  Download Resume
+</Button>
             </div>
           </motion.div>
 

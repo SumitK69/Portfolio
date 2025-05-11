@@ -12,32 +12,40 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ExternalLink, Github, ChevronDown, ChevronUp } from "lucide-react";
 
-interface ProjectCardProps {
+
+
+// Define the Project type
+interface Project {
   title: string;
   description: string;
-  longDescription?: string;
-  image: string;
+  thumbnail: string;
   techStack: string[];
-  demoLink?: string;
-  repoLink?: string;
   category?: string;
+  liveUrl?: string;
+  repoUrl?: string;
+}
+interface ProjectCardProps {
+  project:Project;
 }
 
-const ProjectCard = ({
-  title = "Project Title",
-  description = "A short description of the project showcasing key features and technologies used.",
-  longDescription = "This is a more detailed description of the project that explains the problem it solves, the approach taken, and the technologies used in more detail. It provides context about why the project was built and what makes it interesting or challenging.",
-  image = "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
-  techStack = ["React", "TypeScript", "Tailwind CSS"],
-  demoLink = "https://example.com",
-  repoLink = "https://github.com",
-  category = "Software Development",
-}: ProjectCardProps) => {
+
+const ProjectCard = ({ project }: ProjectCardProps) => {
   const [expanded, setExpanded] = useState(false);
 
   const toggleExpand = () => {
     setExpanded(!expanded);
   };
+
+  // Destructure the project object
+  const {
+    title,
+    description,
+    thumbnail,
+    techStack,
+    category,
+    liveUrl,
+    repoUrl,
+  } = project;
 
   return (
     <motion.div
@@ -51,7 +59,7 @@ const ProjectCard = ({
       <Card className="h-full overflow-hidden transition-all duration-300 hover:shadow-lg">
         <div className="relative overflow-hidden">
           <img
-            src={image}
+            src={thumbnail}
             alt={title}
             className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
           />
@@ -88,17 +96,17 @@ const ProjectCard = ({
               exit={{ opacity: 0, height: 0 }}
               className="mt-4 text-sm text-muted-foreground"
             >
-              <p>{longDescription}</p>
+              <p>{description}</p>
             </motion.div>
           )}
         </CardContent>
 
         <CardFooter className="flex justify-between pt-2">
           <div className="flex gap-2">
-            {demoLink && (
+            {liveUrl && (
               <Button size="sm" variant="outline" asChild>
                 <a
-                  href={demoLink}
+                  href={liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1"
@@ -108,10 +116,10 @@ const ProjectCard = ({
                 </a>
               </Button>
             )}
-            {repoLink && (
+            {repoUrl && (
               <Button size="sm" variant="outline" asChild>
                 <a
-                  href={repoLink}
+                  href={repoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1"
