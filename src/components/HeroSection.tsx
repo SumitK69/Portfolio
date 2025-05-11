@@ -99,7 +99,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   className="gap-1 text-xs sm:text-sm md:gap-2 md:text-base md:size-lg"
   onClick={() => {
     const link = document.createElement("a"); // Create an <a> element
-    link.href = "Portfolio/assets/resume.pdf"; // Path to the resume file
+    link.href = "assets/resume.pdf"; // Path to the resume file
     link.download = "Sumit_Khobragade_Resume.pdf"; // File name for the download
     document.body.appendChild(link); // Append the link to the document
     link.click(); // Programmatically click the link
