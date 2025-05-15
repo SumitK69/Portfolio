@@ -93,22 +93,22 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 <Mail className="h-4 w-4 md:h-5 md:w-5" />
                  Contact Me
               </Button>
-<Button
-  size="sm"
-  variant="outline"
-  className="gap-1 text-xs sm:text-sm md:gap-2 md:text-base md:size-lg"
-  onClick={() => {
-    const link = document.createElement("a"); // Create an <a> element
-    link.href = "assets/resume.pdf"; // Path to the resume file
-    link.download = "Sumit_Khobragade_Resume.pdf"; // File name for the download
-    document.body.appendChild(link); // Append the link to the document
-    link.click(); // Programmatically click the link
-    document.body.removeChild(link); // Remove the link after triggering the download
-  }}
->
-  <ArrowDownToLine className="h-4 w-4 md:h-5 md:w-5" />
-  Download Resume
-</Button>
+              <Button
+                size="sm"
+                variant="outline"
+                className="gap-1 text-xs sm:text-sm md:gap-2 md:text-base md:size-lg"
+                onClick={() => {
+                  const link = document.createElement("a"); // Create an <a> element
+                  link.href = "assets/resume.pdf"; // Path to the resume file
+                  link.download = "Sumit_Khobragade_Resume.pdf"; // File name for the download
+                  document.body.appendChild(link); // Append the link to the document
+                  link.click(); // Programmatically click the link
+                  document.body.removeChild(link); // Remove the link after triggering the download
+                }}
+              >
+                <ArrowDownToLine className="h-4 w-4 md:h-5 md:w-5" />
+                Download Resume
+              </Button>
             </div>
           </motion.div>
 
@@ -129,9 +129,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           </motion.div>
         </div>
 
-        {/* Scroll indicator */}
+        {/* Scroll indicator - Fixed positioning for mobile */}
         <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
+          className="hidden sm:flex flex-col items-center absolute bottom-8 left-1/2 transform -translate-x-1/2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.6 }}
@@ -147,6 +147,29 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             <motion.div
               className="w-1.5 h-1.5 rounded-full bg-primary"
               animate={{ y: [0, 6, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5 }}
+            />
+          </motion.div>
+        </motion.div>
+        
+        {/* Mobile-specific scroll indicator */}
+        <motion.div
+          className="sm:hidden flex flex-col items-center mt-12 pt-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 0.6 }}
+        >
+          <span className="text-xs text-muted-foreground mb-2">
+            Scroll to explore
+          </span>
+          <motion.div
+            className="w-5 h-8 border-2 border-primary rounded-full flex justify-center pt-1"
+            animate={{ y: [0, 8, 0] }}
+            transition={{ repeat: Infinity, duration: 1.5 }}
+          >
+            <motion.div
+              className="w-1 h-1 rounded-full bg-primary"
+              animate={{ y: [0, 5, 0] }}
               transition={{ repeat: Infinity, duration: 1.5 }}
             />
           </motion.div>
