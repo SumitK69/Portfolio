@@ -28,7 +28,7 @@ const ProjectsShowcase = ({ projects = [] }: ProjectsShowcaseProps) => {
   const defaultProjects: Project[] = [
     {
       id: "1",
-      title: "Mail Sp am Detection",
+      title: "Mail Spam Detection",
       description:
         "A comprehensive solution for detecting spam emails, integrating machine learning with a user-friendly web interface. Performed data modelling, cleaning, refining, and classification to ensure high model accuracy.",
       thumbnail:
@@ -135,35 +135,10 @@ const ProjectsShowcase = ({ projects = [] }: ProjectsShowcaseProps) => {
           projects. Each project demonstrates different skills and technologies.
         </p>
 
-        <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
-          <Tabs
-            defaultValue="all"
-            className="w-full md:w-auto"
-            onValueChange={setActiveCategory}
-          >
-            <TabsList className="grid grid-cols-2 md:grid-cols-5 w-full md:w-auto gap-1 md:gap-0">
-              <TabsTrigger value="all" className="text-xs md:text-sm">
-                All
-              </TabsTrigger>
-              <TabsTrigger
-                value="software-development"
-                className="text-xs md:text-sm"
-              >
-                Software Dev
-              </TabsTrigger>
-              <TabsTrigger value="data-science" className="text-xs md:text-sm">
-                Data Science
-              </TabsTrigger>
-              <TabsTrigger value="full-stack" className="text-xs md:text-sm">
-                Full Stack
-              </TabsTrigger>
-              <TabsTrigger value="other" className="text-xs md:text-sm">
-                Other
-              </TabsTrigger>
-            </TabsList>
-          </Tabs>
-
-          <div className="relative w-full md:w-64">
+        {/* Improved mobile layout with vertical stacking */}
+        <div className="flex flex-col gap-6 mb-8">
+          {/* Search bar moved to top for mobile */}
+          <div className="relative w-full">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
             <Input
               placeholder="Search projects..."
@@ -172,6 +147,34 @@ const ProjectsShowcase = ({ projects = [] }: ProjectsShowcaseProps) => {
               onChange={(e) => setSearchQuery(e.target.value)}
             />
           </div>
+          
+          {/* Modified tabs with better mobile support */}
+          <Tabs
+            defaultValue="all"
+            className="w-full"
+            onValueChange={setActiveCategory}
+          >
+            <TabsList className="w-full h-auto flex flex-wrap bg-muted p-1">
+              <TabsTrigger value="all" className="text-xs md:text-sm h-8 flex-1 data-[state=active]:bg-background">
+                All
+              </TabsTrigger>
+              <TabsTrigger
+                value="software-development"
+                className="text-xs md:text-sm h-8 flex-1 data-[state=active]:bg-background"
+              >
+                Software Dev
+              </TabsTrigger>
+              <TabsTrigger value="data-science" className="text-xs md:text-sm h-8 flex-1 data-[state=active]:bg-background">
+                Data Science
+              </TabsTrigger>
+              <TabsTrigger value="full-stack" className="text-xs md:text-sm h-8 flex-1 data-[state=active]:bg-background">
+                Full Stack
+              </TabsTrigger>
+              <TabsTrigger value="other" className="text-xs md:text-sm h-8 flex-1 data-[state=active]:bg-background">
+                Other
+              </TabsTrigger>
+            </TabsList>
+          </Tabs>
         </div>
 
         {filteredProjects.length > 0 ? (
