@@ -31,6 +31,8 @@ const ExperienceTimeline = ({
     setExpandedId(expandedId === id ? null : id);
   };
 
+  const orderedexp=[...experiences].reverse();
+
   return (
     <section className="w-full py-10 md:py-16 bg-background">
       <div className="container mx-auto px-4">
@@ -48,7 +50,7 @@ const ExperienceTimeline = ({
           {/* Timeline line */}
           <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-border" />
 
-          {experiences.map((experience, index) => (
+          {orderedexp.map((experience, index) => (
             <motion.div
               key={experience.id}
               initial={{ opacity: 0, y: 20 }}
@@ -163,56 +165,31 @@ const ExperienceTimeline = ({
 };
 
 const defaultExperiences: Experience[] = [
-  {
+    {
     id: "1",
-    company: "OUR BROKING SERVICES LLP",
-    logo: "https://api.dicebear.com/7.x/avataaars/svg?seed=OurBrokingServices",
-    role: "Software Developer",
-    period: "Aug 2023 - Feb 2024",
-    location: "Ludhiana, India",
+    company: "Guru Nanak College of Science",
+    logo: "https://api.dicebear.com/7.x/avataaars/svg?seed=GuruNanakCollege",
+    role: "Computer Science",
+    period: "June 2019 - Aug 2021",
+    location: "Ballarpur, MH, India",
     description:
-      "Developed and deployed RESTful APIs and Socket.IO-based services, improving system communication efficiency by 40%.",
+      "Completed foundational education in Computer Science, building core programming and analytical skills.",
     achievements: [
-      "Automated repetitive workflows and built internal dashboards, reducing manual effort by over 30%",
-      "Designed documentation and ticketing systems to streamline onboarding and issue resolution",
-      "Worked with live stock market data for order placement, comparison logic, and real-time decision support tools",
-      "Debugged and maintained applications hosted on Windows IIS Server, minimizing downtime",
+      "Learned fundamentals of computer science and programming",
+      "Developed strong analytical and problem-solving skills",
+      "Built foundation for further education in technology",
     ],
     technologies: [
-      "JavaScript",
-      "TypeScript",
-      "REST API",
-      "Socket.IO",
-      "Windows IIS Server",
-      "Data Analysis",
+      "Programming Fundamentals",
+      "Computer Science",
+      "Data Structures",
+      "Algorithms",
     ],
     current: false,
   },
+  
   {
     id: "2",
-    company: "Gondwana University",
-    logo: "https://api.dicebear.com/7.x/avataaars/svg?seed=GondwanaUniversity",
-    role: "Bachelor of Computer Application",
-    period: "Sep 2021 - June 2024",
-    location: "Gadchiroli, MH, India",
-    description:
-      "Pursuing a Bachelor's degree in Computer Application with focus on software development and data science.",
-    achievements: [
-      "Developed multiple projects including Mail Spam Detection and Movie Recommendation System",
-      "Gained proficiency in various programming languages and data science techniques",
-      "Participated in hackathons and coding competitions",
-    ],
-    technologies: [
-      "Python",
-      "Java",
-      "Data Science",
-      "Machine Learning",
-      "Web Development",
-    ],
-    current: true,
-  },
-  {
-    id: "3",
     company: "INTELLIPAAT",
     logo: "https://api.dicebear.com/7.x/avataaars/svg?seed=Intellipaat",
     role: "Professional Certification",
@@ -235,27 +212,89 @@ const defaultExperiences: Experience[] = [
     current: false,
   },
   {
-    id: "4",
-    company: "Guru Nanak College of Science",
-    logo: "https://api.dicebear.com/7.x/avataaars/svg?seed=GuruNanakCollege",
-    role: "Computer Science",
-    period: "June 2019 - Aug 2021",
-    location: "Ballarpur, MH, India",
+    id: "3",
+    company: "Gondwana University",
+    logo: "https://api.dicebear.com/7.x/avataaars/svg?seed=GondwanaUniversity",
+    role: "Bachelor of Computer Application",
+    period: "Sep 2021 - June 2024",
+    location: "Gadchiroli, MH, India",
     description:
-      "Completed foundational education in Computer Science, building core programming and analytical skills.",
+      "Pursuing a Bachelor's degree in Computer Application with focus on software development and data science.",
     achievements: [
-      "Learned fundamentals of computer science and programming",
-      "Developed strong analytical and problem-solving skills",
-      "Built foundation for further education in technology",
+      "Developed multiple projects including Mail Spam Detection and Movie Recommendation System",
+      "Gained proficiency in various programming languages and data science techniques",
+      "Participated in hackathons and coding competitions",
     ],
     technologies: [
-      "Programming Fundamentals",
-      "Computer Science",
-      "Data Structures",
-      "Algorithms",
+      "Python",
+      "Java",
+      "Data Science",
+      "Machine Learning",
+      "Web Development",
     ],
     current: false,
   },
+  {
+    id: "4",
+    company: "OUR BROKING SERVICES LLP",
+    logo: "https://api.dicebear.com/7.x/avataaars/svg?seed=OurBrokingServices",
+    role: "Software Developer",
+    period: "Aug 2023 - Feb 2024",
+    location: "Ludhiana, India",
+    description:
+      "Developed and deployed RESTful APIs and Socket.IO-based services, improving system communication efficiency by 40%.",
+    achievements: [
+      "Automated repetitive workflows and built internal dashboards, reducing manual effort by over 30%",
+      "Designed documentation and ticketing systems to streamline onboarding and issue resolution",
+      "Worked with live stock market data for order placement, comparison logic, and real-time decision support tools",
+      "Debugged and maintained applications hosted on Windows IIS Server, minimizing downtime",
+    ],
+    technologies: [
+      "Python",
+      "JavaScript",
+      "TypeScript",
+      "REST API",
+      "Socket.IO",
+      "Windows IIS Server",
+      "Data Analysis",
+    ],
+    current: false,
+  },
+
+ {
+  id: "5",
+  company: "Savitribai Phule Pune University",
+  logo: "https://api.dicebear.com/7.x/avataaars/svg?seed=SPPU",
+  role: "Master of Computer Application",
+  period: "June 2024 - June 2026",
+  location: "MES IMCC, Pune, MH, India",
+  description:
+    "Pursuing MCA with a focus on full stack development, cybersecurity, cloud computing, and machine learning. Gaining hands-on experience in building enterprise-level applications and research-based mini-projects.",
+  achievements: [
+    "Built a Recipe Finder web app using HTML, CSS, JavaScript, and API integration",
+    "Developed a cross-platform Personal Finance Tracker with income/expense visualization",
+    "Created an Applicant Tracking System with SQLite backend and JWT-based authentication",
+    "Successfully completed practicals in Java, Full Stack Development, Cyber Security, and Mobile App Development"
+  ],
+  technologies: [
+    "Java",
+    "Python",
+    "JavaScript",
+    "HTML/CSS",
+    "Full Stack Development",
+    "Cyber Security",
+    "Cloud Management",
+    "Machine Learning",
+    "SQLite",
+    "Android Development",
+    "Power BI",
+    "Tableau"
+  ],
+  current: true
+}
+
+
+
 ];
 
 export default ExperienceTimeline;
